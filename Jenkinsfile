@@ -12,6 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ramsaisuggula/cicdassignment.git']])
                 sh 'mvn clean install'
             }
         }
